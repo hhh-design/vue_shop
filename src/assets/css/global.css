@@ -3,6 +3,7 @@ html,body,#app{/* 多个并列时中间有逗号分隔，#表示id */
   height: 100%;
   margin: 0;
   padding: 0;
+  min-width: 1366px;
 }
 
 /* 覆盖默认样式，写到global.css样式中 */
