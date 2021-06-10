@@ -115,8 +115,7 @@
         </span>
       </el-dialog>
 
-      <!-- 修改用户信息的对话框 -->
-      <!-- 规则都以rules结尾 引用以ref结尾 -->
+      <!-- 修改用户信息的对话框   ( 规则都以rules结尾 引用以ref结尾)-->
       <el-dialog
         title="修改用户信息"
         :visible.sync="editDialogVisible"
