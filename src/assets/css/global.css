@@ -23,8 +23,12 @@ html,body,#app{/* 多个并列时中间有逗号分隔，#表示id */
 /* 解决表头与表格列宽不一样 */
 body .el-table th.gutter{
   display: table-cell!important;
-  }
+}
 
   .el-pagination{
     margin-top: 10px;
   }
+/* 设置级联选择器高度 */
+.el-cascader-panel{
+  height: 300px;
+}

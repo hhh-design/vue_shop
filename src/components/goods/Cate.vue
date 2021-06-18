@@ -83,19 +83,28 @@
         <el-form-item label="父级分类:">
           <!-- options 用来指定数据源 props 用来指定配置对象 
           v-model必须绑定数组不可以是具体的值或者对象-->
-
-          <el-cascader
+          <!-- <el-cascader
+            expand-trigger="hover"
             v-model="selectdKeys"
             :options="parentCateList"
             :props="{
-              expandTrigger: 'hover',
               ...cascaderProps,
               checkStrictly: 'true',
             }"
             @change="parentCateChanged"
             clearable
             change-on-select
-          ></el-cascader>
+          ></el-cascader> -->
+          <el-cascader
+            expand-trigger="hover"
+            :options="parentCateList"
+            :props="cascaderProps"
+            v-model="selectedKeys"
+            @change="parentCateChanged"
+            clearable
+            change-on-select
+          >
+          </el-cascader>
         </el-form-item>
       </el-form>
       <span slot="footer" class="dialog-footer">
@@ -229,7 +238,7 @@
       this.getCateList()
     },
     methods: {
-      /* 获取商品分类的数据 */
+      /* 获取所有的商品分类列表 */
       async getCateList() {
         const { data: res } = await this.$http.get('categories', {
           params: this.queryInfo,
@@ -241,7 +250,6 @@
         this.cateList = res.data.result
         // 为总数据条数赋值
         this.total = res.data.total
-        console.log(res)
       },
       /* 监听pagesize的改变 */
       handleSizeChange(newValue) {
